@@ -1,0 +1,167 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AnimatedEntry from '../components/AnimatedEntry.jsx';
+---
+
+<BaseLayout title="Perspectives — r.s">
+  <section
+    style={{
+      maxWidth: "800px",
+      margin: "0 auto",
+      padding: "80px 32px",
+    }}
+  >
+    <AnimatedEntry client:load>
+      <h1
+        style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: "48px",
+          fontWeight: 400,
+          marginBottom: "16px",
+        }}
+      >
+        Perspectives
+      </h1>
+      <p
+        style={{
+          fontSize: "16px",
+          color: "#7A6F64",
+          fontWeight: 300,
+          lineHeight: 1.7,
+          marginBottom: "60px",
+          maxWidth: "540px",
+        }}
+      >
+        A space for different angles. Your take might be nothing like mine —
+        and that's exactly the point. Share a thought, challenge an idea, or
+        just say hello.
+      </p>
+    </AnimatedEntry>
+
+    <AnimatedEntry client:visible delay={150}>
+      <div
+        style={{
+          background: "#FFFFFF",
+          border: "1px solid #E5DDD3",
+          borderRadius: "12px",
+          padding: "40px",
+          marginBottom: "40px",
+        }}
+      >
+        <h3
+          style={{
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontSize: "24px",
+            fontWeight: 600,
+            marginBottom: "24px",
+          }}
+        >
+          This month's question
+        </h3>
+        <p
+          style={{
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontSize: "22px",
+            fontStyle: "italic",
+            color: "#C0754A",
+            lineHeight: 1.6,
+            marginBottom: "28px",
+          }}
+        >
+          "What's one thing you believed strongly five years ago that you've
+          since changed your mind about?"
+        </p>
+        <p
+          style={{
+            fontSize: "14px",
+            color: "#7A6F64",
+            fontWeight: 300,
+            lineHeight: 1.7,
+          }}
+        >
+          This is where a Tally or Typeform embed would go — visitors can
+          share their answers anonymously and see what others have said. A
+          simple embed keeps the site fully static.
+        </p>
+        <div
+          style={{
+            marginTop: "24px",
+            padding: "20px",
+            background: "#F2EDE5",
+            borderRadius: "8px",
+            border: "1px dashed #E5DDD3",
+            textAlign: "center",
+            fontSize: "13px",
+            color: "#7A6F64",
+          }}
+        >
+          <iframe
+            data-tally-src="https://tally.so/embed/PLACEHOLDER_FORM_ID?hideTitle=1"
+            loading="lazy"
+            width="100%"
+            height="300"
+            frameborder="0"
+            title="Monthly question"
+            style={{ border: "none", display: "none" }}
+          ></iframe>
+          [ Tally / Typeform embed goes here ]
+        </div>
+      </div>
+    </AnimatedEntry>
+
+    <AnimatedEntry client:visible delay={300}>
+      <div
+        style={{
+          background: "#FFFFFF",
+          border: "1px solid #E5DDD3",
+          borderRadius: "12px",
+          padding: "40px",
+        }}
+      >
+        <h3
+          style={{
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontSize: "24px",
+            fontWeight: 600,
+            marginBottom: "24px",
+          }}
+        >
+          Quick poll
+        </h3>
+        <p
+          style={{
+            fontSize: "15px",
+            color: "#7A6F64",
+            lineHeight: 1.7,
+            fontWeight: 300,
+            marginBottom: "20px",
+          }}
+        >
+          Light-hearted polls, rotating weekly. No logins, no fuss.
+        </p>
+        <div
+          style={{
+            padding: "20px",
+            background: "#F2EDE5",
+            borderRadius: "8px",
+            border: "1px dashed #E5DDD3",
+            textAlign: "center",
+            fontSize: "13px",
+            color: "#7A6F64",
+          }}
+        >
+          <iframe
+            data-tally-src="https://tally.so/embed/PLACEHOLDER_POLL_ID?hideTitle=1"
+            loading="lazy"
+            width="100%"
+            height="300"
+            frameborder="0"
+            title="Quick poll"
+            style={{ border: "none", display: "none" }}
+          ></iframe>
+          [ Poll embed goes here ]
+        </div>
+      </div>
+    </AnimatedEntry>
+  </section>
+</BaseLayout>

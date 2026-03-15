@@ -1,0 +1,122 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AnimatedEntry from '../components/AnimatedEntry.jsx';
+import TagPill from '../components/TagPill.jsx';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('posts')).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+
+function formatDate(date: Date): string {
+  return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+}
+---
+
+<BaseLayout title="Musings — r.s">
+  <section
+    style={{
+      maxWidth: "800px",
+      margin: "0 auto",
+      padding: "80px 32px",
+    }}
+  >
+    <AnimatedEntry client:load>
+      <h1
+        style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: "48px",
+          fontWeight: 400,
+          marginBottom: "16px",
+        }}
+      >
+        Musings
+      </h1>
+      <p
+        style={{
+          fontSize: "16px",
+          color: "#7A6F64",
+          fontWeight: 300,
+          lineHeight: 1.7,
+          marginBottom: "60px",
+          maxWidth: "500px",
+        }}
+      >
+        The interesting, the non-obvious, and the things that made me look
+        at the world a little differently.
+      </p>
+    </AnimatedEntry>
+
+    {posts.map((post, i) => (
+      <AnimatedEntry client:visible delay={i * 100}>
+        <a href={`/musings/${post.id}`} style={{ textDecoration: "none", color: "inherit", display: "block" }}>
+          <article
+            style={{
+              borderBottom: "1px solid #E5DDD3",
+              padding: "36px 0",
+              cursor: "pointer",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                gap: "16px",
+                alignItems: "center",
+                marginBottom: "12px",
+              }}
+            >
+              <span
+                style={{
+                  fontSize: "11px",
+                  textTransform: "uppercase",
+                  letterSpacing: "2px",
+                  color: "#C0754A",
+                  fontWeight: 500,
+                }}
+              >
+                {post.data.category}
+              </span>
+              <span style={{ fontSize: "12px", color: "#7A6F64" }}>
+                {formatDate(post.data.date)}
+              </span>
+            </div>
+            <h2
+              style={{
+                fontFamily: "'Cormorant Garamond', Georgia, serif",
+                fontSize: "28px",
+                fontWeight: 600,
+                lineHeight: 1.3,
+                marginBottom: "10px",
+              }}
+            >
+              {post.data.title}
+            </h2>
+            <p
+              style={{
+                fontSize: "15px",
+                color: "#7A6F64",
+                lineHeight: 1.7,
+                fontWeight: 300,
+              }}
+            >
+              {post.data.excerpt}
+            </p>
+            <div
+              style={{
+                display: "flex",
+                gap: "12px",
+                alignItems: "center",
+                marginTop: "16px",
+              }}
+            >
+              <TagPill client:visible label={post.data.tag} />
+              <span style={{ fontSize: "12px", color: "#7A6F64" }}>
+                {post.data.readTime} read
+              </span>
+            </div>
+          </article>
+        </a>
+      </AnimatedEntry>
+    ))}
+  </section>
+</BaseLayout>

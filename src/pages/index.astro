@@ -1,0 +1,222 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AnimatedEntry from '../components/AnimatedEntry.jsx';
+import PostCard from '../components/PostCard.jsx';
+import ProjectCard from '../components/ProjectCard.jsx';
+import QuoteSection from '../components/QuoteSection.jsx';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('posts')).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+
+const projects = await getCollection('projects');
+
+function formatDate(date: Date): string {
+  return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+}
+---
+
+<BaseLayout>
+  <!-- Hero -->
+  <section
+    style={{
+      maxWidth: "1100px",
+      margin: "0 auto",
+      padding: "100px 32px 80px",
+    }}
+  >
+    <AnimatedEntry client:visible>
+      <p
+        style={{
+          fontFamily: "'DM Sans', sans-serif",
+          fontSize: "13px",
+          color: "#C0754A",
+          textTransform: "uppercase",
+          letterSpacing: "3px",
+          marginBottom: "24px",
+          fontWeight: 500,
+        }}
+      >
+        Welcome, Curious Mind
+      </p>
+    </AnimatedEntry>
+
+    <AnimatedEntry client:visible delay={150}>
+      <h1
+        style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: "clamp(42px, 6vw, 72px)",
+          fontWeight: 400,
+          lineHeight: 1.1,
+          maxWidth: "800px",
+          marginBottom: "32px",
+          color: "#2C2520",
+        }}
+      >
+        Things that make me{" "}
+        <span
+          style={{
+            fontStyle: "italic",
+            color: "#C0754A",
+            fontWeight: 600,
+          }}
+        >
+          pause
+        </span>
+        ,{" "}
+        <span
+          style={{
+            fontStyle: "italic",
+            color: "#C0754A",
+            fontWeight: 600,
+          }}
+        >
+          think
+        </span>
+        , and{" "}
+        <span
+          style={{
+            fontStyle: "italic",
+            color: "#C0754A",
+            fontWeight: 600,
+          }}
+        >
+          look again
+        </span>
+        .
+      </h1>
+    </AnimatedEntry>
+
+    <AnimatedEntry client:visible delay={300}>
+      <p
+        style={{
+          fontFamily: "'DM Sans', sans-serif",
+          fontSize: "18px",
+          lineHeight: 1.7,
+          color: "#7A6F64",
+          maxWidth: "560px",
+          fontWeight: 300,
+        }}
+      >
+        A small corner of the internet where I explore the interesting,
+        the non-obvious, and the beautifully different — through code,
+        culture, and curiosity.
+      </p>
+    </AnimatedEntry>
+
+    <AnimatedEntry client:visible delay={450}>
+      <div
+        style={{
+          width: "80px",
+          height: "2px",
+          background: "linear-gradient(90deg, #C0754A, transparent)",
+          marginTop: "48px",
+        }}
+      />
+    </AnimatedEntry>
+  </section>
+
+  <!-- Recent writings -->
+  <section
+    style={{
+      maxWidth: "1100px",
+      margin: "0 auto",
+      padding: "0 32px 80px",
+    }}
+  >
+    <AnimatedEntry client:visible>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "baseline",
+          marginBottom: "48px",
+        }}
+      >
+        <h2
+          style={{
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontSize: "32px",
+            fontWeight: 400,
+          }}
+        >
+          Recently{" "}
+          <span style={{ fontStyle: "italic", color: "#C0754A" }}>
+            thinking about
+          </span>
+        </h2>
+        <a
+          href="/musings"
+          style={{
+            fontFamily: "'DM Sans', sans-serif",
+            fontSize: "13px",
+            color: "#C0754A",
+            fontWeight: 500,
+            letterSpacing: "0.5px",
+            textDecoration: "none",
+          }}
+        >
+          View all &rarr;
+        </a>
+      </div>
+    </AnimatedEntry>
+
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
+        gap: "24px",
+      }}
+    >
+      {posts.map((post, i) => (
+        <AnimatedEntry client:visible delay={i * 120}>
+          <PostCard
+            client:visible
+            post={{
+              ...post.data,
+              formattedDate: formatDate(post.data.date),
+            }}
+            slug={post.id}
+          />
+        </AnimatedEntry>
+      ))}
+    </div>
+  </section>
+
+  <!-- Quote section -->
+  <QuoteSection client:visible />
+
+  <!-- Projects preview -->
+  <section
+    style={{
+      maxWidth: "1100px",
+      margin: "0 auto",
+      padding: "80px 32px",
+    }}
+  >
+    <AnimatedEntry client:visible>
+      <h2
+        style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: "32px",
+          fontWeight: 400,
+          marginBottom: "48px",
+        }}
+      >
+        Side{" "}
+        <span style={{ fontStyle: "italic", color: "#C0754A" }}>
+          projects
+        </span>
+      </h2>
+    </AnimatedEntry>
+
+    <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+      {projects.map((proj, i) => (
+        <AnimatedEntry client:visible delay={i * 100}>
+          <ProjectCard client:visible project={proj.data} />
+        </AnimatedEntry>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

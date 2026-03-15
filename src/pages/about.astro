@@ -1,0 +1,170 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AnimatedEntry from '../components/AnimatedEntry.jsx';
+---
+
+<BaseLayout title="About — r.s">
+  <section
+    style={{
+      maxWidth: "800px",
+      margin: "0 auto",
+      padding: "80px 32px",
+    }}
+  >
+    <AnimatedEntry client:load>
+      <h1
+        style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: "48px",
+          fontWeight: 400,
+          marginBottom: "40px",
+        }}
+      >
+        About
+      </h1>
+    </AnimatedEntry>
+
+    <AnimatedEntry client:visible delay={100}>
+      <div
+        style={{
+          display: "flex",
+          gap: "48px",
+          flexWrap: "wrap",
+          marginBottom: "48px",
+        }}
+      >
+        <!-- Photo placeholder -->
+        <div
+          style={{
+            width: "200px",
+            height: "240px",
+            borderRadius: "12px",
+            background: "linear-gradient(145deg, #E8CDB5, #F2EDE5)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: "13px",
+            color: "#7A6F64",
+            border: "1px solid #E5DDD3",
+            flexShrink: 0,
+          }}
+        >
+          Your photo
+        </div>
+
+        <div style={{ flex: "1 1 300px" }}>
+          <p
+            style={{
+              fontSize: "17px",
+              lineHeight: 1.8,
+              color: "#2C2520",
+              fontWeight: 300,
+              marginBottom: "20px",
+            }}
+          >
+            Hi, I'm Raj. I'm an engineer who finds joy in the spaces between
+            disciplines — where code meets culture, where the obvious hides
+            something deeper, and where two people can look at the same thing
+            and see something completely different.
+          </p>
+          <p
+            style={{
+              fontSize: "17px",
+              lineHeight: 1.8,
+              color: "#2C2520",
+              fontWeight: 300,
+              marginBottom: "20px",
+            }}
+          >
+            This site is my notebook — a place for the things that don't fit
+            neatly into a LinkedIn post or a tweet. Side projects I'm
+            tinkering with, ideas I'm wrestling with, and the occasional
+            thing that just made me smile.
+          </p>
+          <p
+            style={{
+              fontSize: "17px",
+              lineHeight: 1.8,
+              color: "#2C2520",
+              fontWeight: 300,
+            }}
+          >
+            If something here sparks a thought, I'd love to hear it. The
+            whole point is the conversation.
+          </p>
+        </div>
+      </div>
+    </AnimatedEntry>
+
+    <AnimatedEntry client:visible delay={250}>
+      <div
+        style={{
+          background: "#FFFFFF",
+          border: "1px solid #E5DDD3",
+          borderRadius: "12px",
+          padding: "36px",
+        }}
+      >
+        <h3
+          style={{
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontSize: "22px",
+            fontWeight: 600,
+            marginBottom: "20px",
+          }}
+        >
+          Say hello
+        </h3>
+        <p
+          style={{
+            fontSize: "14px",
+            color: "#7A6F64",
+            fontWeight: 300,
+            lineHeight: 1.7,
+            marginBottom: "16px",
+          }}
+        >
+          Whether it's a project idea, a recommendation, or just a "hey, I
+          disagree with your take on X" — all welcome.
+        </p>
+        <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
+          <a
+            href="https://github.com/rbsundaramoorthy"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              padding: "10px 24px",
+              borderRadius: "8px",
+              background: "#1A1714",
+              color: "#E8E0D6",
+              fontSize: "13px",
+              fontWeight: 500,
+              textDecoration: "none",
+              fontFamily: "'DM Sans', sans-serif",
+              transition: "all 0.3s ease",
+            }}
+          >
+            GitHub
+          </a>
+          <a
+            href="mailto:rajsundaramoorthy@yahoo.com"
+            style={{
+              padding: "10px 24px",
+              borderRadius: "8px",
+              background: "transparent",
+              color: "#C0754A",
+              fontSize: "13px",
+              fontWeight: 500,
+              textDecoration: "none",
+              fontFamily: "'DM Sans', sans-serif",
+              border: "1px solid #C0754A",
+              transition: "all 0.3s ease",
+            }}
+          >
+            Email
+          </a>
+        </div>
+      </div>
+    </AnimatedEntry>
+  </section>
+</BaseLayout>

@@ -1,0 +1,142 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = "r.s — Raj Sundaramoorthy", description = "A small corner of the internet where I explore the interesting, the non-obvious, and the beautifully different." } = Astro.props;
+const currentPath = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <title>{title}</title>
+    <style>
+      @import '../styles/global.css';
+    </style>
+  </head>
+  <body>
+    <!-- Texture overlay -->
+    <div
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E")`,
+        pointerEvents: "none",
+        zIndex: 0,
+      }}
+    ></div>
+
+    <!-- Navigation -->
+    <nav
+      style={{
+        position: "sticky",
+        top: 0,
+        zIndex: 100,
+        background: "#FAF7F2ee",
+        backdropFilter: "blur(12px)",
+        borderBottom: "1px solid #E5DDD3",
+      }}
+    >
+      <div
+        style={{
+          maxWidth: "1100px",
+          margin: "0 auto",
+          padding: "16px 32px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        <a
+          href="/"
+          style={{
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontSize: "24px",
+            fontWeight: 700,
+            color: "#2C2520",
+            letterSpacing: "-0.5px",
+            textDecoration: "none",
+          }}
+        >
+          r<span style={{ color: "#C0754A" }}>.</span>s
+        </a>
+
+        <div
+          style={{
+            display: "flex",
+            gap: "36px",
+            alignItems: "center",
+          }}
+        >
+          {[
+            { href: "/", label: "home" },
+            { href: "/musings", label: "musings" },
+            { href: "/projects", label: "projects" },
+            { href: "/perspectives", label: "perspectives" },
+            { href: "/about", label: "about" },
+          ].map((item) => {
+            const isActive = currentPath === item.href || (item.href !== "/" && currentPath.startsWith(item.href));
+            return (
+              <a
+                href={item.href}
+                style={{
+                  fontFamily: "'DM Sans', sans-serif",
+                  fontSize: "14px",
+                  fontWeight: isActive ? 600 : 400,
+                  color: isActive ? "#C0754A" : "#7A6F64",
+                  padding: "4px 0",
+                  borderBottom: isActive ? "2px solid #C0754A" : "2px solid transparent",
+                  transition: "all 0.3s ease",
+                  letterSpacing: "0.5px",
+                  textTransform: "lowercase" as const,
+                  textDecoration: "none",
+                }}
+              >
+                {item.label}
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </nav>
+
+    <main style={{ position: "relative", zIndex: 1 }}>
+      <slot />
+
+      <!-- Footer -->
+      <footer
+        style={{
+          borderTop: "1px solid #E5DDD3",
+          padding: "40px 32px",
+          textAlign: "center" as const,
+        }}
+      >
+        <p
+          style={{
+            fontFamily: "'DM Sans', sans-serif",
+            fontSize: "13px",
+            color: "#7A6F64",
+            fontWeight: 300,
+          }}
+        >
+          Made with curiosity & caffeine &middot; rajsundaramoorthy.com
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>

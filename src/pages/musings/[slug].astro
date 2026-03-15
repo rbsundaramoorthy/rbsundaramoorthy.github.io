@@ -1,0 +1,193 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AnimatedEntry from '../../components/AnimatedEntry.jsx';
+import TagPill from '../../components/TagPill.jsx';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+function formatDate(date: Date): string {
+  return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+}
+---
+
+<BaseLayout title={`${post.data.title} — r.s`} description={post.data.excerpt}>
+  <section
+    style={{
+      maxWidth: "700px",
+      margin: "0 auto",
+      padding: "80px 32px",
+    }}
+  >
+    <AnimatedEntry client:load>
+      <a
+        href="/musings"
+        style={{
+          fontSize: "13px",
+          color: "#C0754A",
+          fontWeight: 500,
+          letterSpacing: "0.5px",
+          textDecoration: "none",
+          fontFamily: "'DM Sans', sans-serif",
+          display: "inline-block",
+          marginBottom: "48px",
+        }}
+      >
+        &larr; Back to musings
+      </a>
+
+      <div
+        style={{
+          display: "flex",
+          gap: "16px",
+          alignItems: "center",
+          marginBottom: "16px",
+        }}
+      >
+        <span
+          style={{
+            fontSize: "11px",
+            textTransform: "uppercase",
+            letterSpacing: "2px",
+            color: "#C0754A",
+            fontWeight: 500,
+          }}
+        >
+          {post.data.category}
+        </span>
+        <TagPill client:load label={post.data.tag} />
+      </div>
+
+      <h1
+        style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: "clamp(32px, 5vw, 48px)",
+          fontWeight: 600,
+          lineHeight: 1.2,
+          marginBottom: "16px",
+          color: "#2C2520",
+        }}
+      >
+        {post.data.title}
+      </h1>
+
+      <div
+        style={{
+          display: "flex",
+          gap: "16px",
+          fontSize: "13px",
+          color: "#7A6F64",
+          marginBottom: "48px",
+          fontWeight: 400,
+        }}
+      >
+        <span>{formatDate(post.data.date)}</span>
+        <span>&middot;</span>
+        <span>{post.data.readTime} read</span>
+      </div>
+
+      <div
+        style={{
+          width: "60px",
+          height: "2px",
+          background: "linear-gradient(90deg, #C0754A, transparent)",
+          marginBottom: "48px",
+        }}
+      />
+    </AnimatedEntry>
+
+    <AnimatedEntry client:visible delay={200}>
+      <div class="post-content">
+        <Content />
+      </div>
+    </AnimatedEntry>
+  </section>
+</BaseLayout>
+
+<style>
+  .post-content :global(p) {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px;
+    line-height: 1.8;
+    color: #2C2520;
+    font-weight: 300;
+    margin-bottom: 24px;
+  }
+
+  .post-content :global(h2) {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 28px;
+    font-weight: 600;
+    margin-top: 48px;
+    margin-bottom: 16px;
+    color: #2C2520;
+  }
+
+  .post-content :global(h3) {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 36px;
+    margin-bottom: 12px;
+    color: #2C2520;
+  }
+
+  .post-content :global(blockquote) {
+    border-left: 3px solid #C0754A;
+    padding-left: 20px;
+    margin: 32px 0;
+    font-style: italic;
+    color: #7A6F64;
+  }
+
+  .post-content :global(code) {
+    background: #F2EDE5;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 15px;
+  }
+
+  .post-content :global(pre) {
+    background: #1A1714;
+    color: #E8E0D6;
+    padding: 24px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 24px 0;
+  }
+
+  .post-content :global(pre code) {
+    background: none;
+    padding: 0;
+  }
+
+  .post-content :global(a) {
+    color: #C0754A;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .post-content :global(ul),
+  .post-content :global(ol) {
+    margin-bottom: 24px;
+    padding-left: 24px;
+  }
+
+  .post-content :global(li) {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px;
+    line-height: 1.8;
+    color: #2C2520;
+    font-weight: 300;
+    margin-bottom: 8px;
+  }
+</style>
