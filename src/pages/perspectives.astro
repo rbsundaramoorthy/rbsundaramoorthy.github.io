@@ -58,15 +58,19 @@ import AnimatedEntry from '../components/AnimatedEntry.jsx';
         >
           This month's question
         </h3>
-        <iframe
-          data-tally-src="https://tally.so/embed/q4PGKG?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-          loading="lazy"
-          width="100%"
-          height="300"
-          frameborder="0"
-          title="Monthly question"
-          style={{ border: "none" }}
-        ></iframe>
+        <p
+          style={{
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontSize: "22px",
+            fontStyle: "italic",
+            color: "#C0754A",
+            lineHeight: 1.6,
+            marginBottom: "28px",
+          }}
+        >
+          "What's one thing you believed strongly five years ago that you've
+          since changed your mind about?"
+        </p>
         <button
           data-tally-open="q4PGKG"
           data-tally-emoji-text="👋"
@@ -120,35 +124,6 @@ import AnimatedEntry from '../components/AnimatedEntry.jsx';
         >
           Light-hearted polls, rotating weekly. No logins, no fuss.
         </p>
-        <iframe
-          data-tally-src="https://tally.so/embed/OD0X0g?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-          loading="lazy"
-          width="100%"
-          height="300"
-          frameborder="0"
-          title="Quick poll"
-          style={{ border: "none" }}
-        ></iframe>
-        <button
-          data-tally-open="OD0X0g"
-          data-tally-emoji-text="👋"
-          data-tally-emoji-animation="wave"
-          style={{
-            padding: "14px 32px",
-            background: "#C0754A",
-            color: "#FAF7F2",
-            border: "none",
-            borderRadius: "8px",
-            fontFamily: "'DM Sans', sans-serif",
-            fontSize: "15px",
-            fontWeight: 500,
-            cursor: "pointer",
-            transition: "all 0.3s ease",
-            marginTop: "20px",
-          }}
-        >
-          Share your answer
-        </button>
       </div>
     </AnimatedEntry>
   </section>

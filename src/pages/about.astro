@@ -127,16 +127,25 @@ import AnimatedEntry from '../components/AnimatedEntry.jsx';
           Whether it's a project idea, a recommendation, or just a "hey, I
           disagree with your take on X" — all welcome.
         </p>
-        <iframe
-          data-tally-src="https://tally.so/embed/OD0X0g?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-          loading="lazy"
-          width="100%"
-          height="200"
-          frameborder="0"
-          marginheight="0"
-          marginwidth="0"
-          title="Say hello"
-        ></iframe>
+        <button
+          data-tally-open="OD0X0g"
+          data-tally-emoji-text="👋"
+          data-tally-emoji-animation="wave"
+          style={{
+            padding: "14px 32px",
+            background: "#C0754A",
+            color: "#FAF7F2",
+            border: "none",
+            borderRadius: "8px",
+            fontFamily: "'DM Sans', sans-serif",
+            fontSize: "15px",
+            fontWeight: 500,
+            cursor: "pointer",
+            transition: "all 0.3s ease",
+          }}
+        >
+          Write to me
+        </button>
       </div>
     </AnimatedEntry>
   </section>
