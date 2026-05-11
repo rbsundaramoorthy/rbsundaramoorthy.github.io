@@ -21,6 +21,7 @@ const projects = defineCollection({
     description: z.string(),
     status: z.enum(['Active', 'In Progress', 'Idea Stage']),
     tech: z.string(),
+    url: z.string().url().optional(),
   }),
 });
 

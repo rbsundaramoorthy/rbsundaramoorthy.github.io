@@ -106,16 +106,42 @@ const projects = await getCollection('projects');
           >
             {proj.data.description}
           </p>
-          <span
+          <div
             style={{
-              fontSize: "12px",
-              color: "#C0754A",
-              fontWeight: 500,
-              fontFamily: "'DM Sans', sans-serif",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              flexWrap: "wrap",
+              gap: "12px",
             }}
           >
-            {proj.data.tech}
-          </span>
+            <span
+              style={{
+                fontSize: "12px",
+                color: "#C0754A",
+                fontWeight: 500,
+                fontFamily: "'DM Sans', sans-serif",
+              }}
+            >
+              {proj.data.tech}
+            </span>
+            {proj.data.url && (
+              <a
+                href={proj.data.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  fontSize: "12px",
+                  color: "#4A8C5E",
+                  fontWeight: 500,
+                  fontFamily: "'DM Sans', sans-serif",
+                  textDecoration: "none",
+                }}
+              >
+                View on GitHub →
+              </a>
+            )}
+          </div>
         </div>
       </AnimatedEntry>
     ))}
