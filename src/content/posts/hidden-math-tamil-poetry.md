@@ -1,16 +1,50 @@
 ---
-title: "The Hidden Math in Tamil Poetry"
-category: "Not Obvious"
-tag: "Discovery"
-date: 2026-02-20
-readTime: "6 min"
-excerpt: "Ancient Sangam literature wasn't just beautiful — it encoded mathematical patterns that modern linguists are only now beginning to decode."
+title: "The Career Advice That Actually Holds Up"
+category: "Observation"
+tag: "Career"
+date: 2026-06-14
+readTime: "5 min"
+excerpt: "Distilled wisdom on navigating promotions, challenges, feedback, and tough calls — the kind that rarely makes it into any playbook but tends to show up quietly in every great trajectory."
 ---
 
-Tamil Sangam poetry, composed roughly between 300 BCE and 300 CE, is one of the oldest surviving bodies of secular literature in any language. Scholars have spent centuries studying its themes — love, war, landscape, ethics. But a quieter revolution has been happening in computational linguistics, where researchers are discovering that these ancient poems encode mathematical structures that their authors may not have consciously intended.
+Some advice ages. Some of it compounds. What follows is the kind that tends to compound — organized by the moments that actually test you.
 
-The meter system of Sangam poetry, called "yappu," is built on a binary classification of syllables into short (kuril) and long (nedil). This binary system maps naturally onto mathematical sequences. Recent analysis has shown that the distribution of short and long syllables in certain Sangam works follows patterns remarkably similar to Fibonacci-like sequences — centuries before Fibonacci was born in Pisa.
+## Asking for a Promotion
 
-More intriguing still is the work on "tinai," the landscape-emotion mapping system unique to Sangam literature. Each of five landscapes (mountain, seashore, pastoral, agricultural, wasteland) maps to a specific emotional state. This isn't just poetic convention — it's a formal classification system. When you model it mathematically, it behaves like an early form of what we'd now call a semantic embedding: a structured mapping between two conceptual spaces that preserves relationships.
+Approach it as a conversation, not a threat. Frame it around what you can learn and what you're bringing in, and lean on the network you've built to help you succeed. Read the room first — understand the norms of your group so you don't commit a faux pas.
 
-None of this means the ancient Tamil poets were secret mathematicians. What it suggests is something more profound: that mathematical structure is a natural property of well-crafted language. When humans create something beautiful with enough internal consistency, the math emerges on its own, like crystals forming in a cooling solution. The beauty was the point. The math was just along for the ride.
+## Unexpected Moments That Shape a Career
+
+Never say never. Someone from your past can change your trajectory in ways you can't predict, so invest in how you introduce and present yourself. Ambition is welcome — as long as it's paired with talent and a willingness to learn.
+
+## When Teammates Challenge You
+
+Be receptive. Win hearts and minds rather than arguments, and bring people along with you instead of leaving them behind.
+
+## On Asking for Feedback
+
+If you ask for it, be willing to receive it and to change. Stay open-minded. Anchor yourself in the collective good of the client, and try to understand others' perspectives — not just what they think, but why they feel that way.
+
+## Handling Unexpected Client Challenges
+
+Don't just deliver a message — bring a plan, a point of view, and an answer.
+
+## Against Conventional Wisdom
+
+Don't only go up — go over. Be well-rounded but also go deep in a specific area. There is no bad role. A useful litmus test: if you feel uncomfortable at the beginning, you're probably in the right role. Doing the same things makes change hard, so don't get so locked into being "the expert" that you can't move.
+
+## Making Tough Decisions When the Heat Is On
+
+Fall back on your leadership style. Double down on questions, cover all angles, and treat listening as the most important move. Seek many viewpoints — especially from the people in the trenches, so they feel included. Trust others, take a break when you need one, and remember that many decisions are relationship-based.
+
+## Best Advice from an Unexpected Source
+
+A wise man said: if you say you're going to do something, do it. Ask yourself regularly — what did I promise my kids? What did I convey to my teammates? Do I sound like the person I say I am?
+
+## A Personal Habit or Boundary That Kept You Balanced
+
+Balance is a myth — there are ups and downs. But when you take vacation, take it completely off. Sleep is non-negotiable. Prioritize your experience, never apologize for taking time off, and don't wear nearly-lost PTO as a badge of honor.
+
+## One Piece of Advice to Your Younger Self
+
+You will survive. Lean into your role. Keep your head down but your eyes wide open. Put time on your calendar for what matters — and reach out to people; it's more gratifying than you expect.
