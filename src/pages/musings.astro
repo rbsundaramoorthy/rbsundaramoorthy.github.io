@@ -4,9 +4,9 @@ import AnimatedEntry from '../components/AnimatedEntry.jsx';
 import TagPill from '../components/TagPill.jsx';
 import { getCollection } from 'astro:content';
 
-const posts = (await getCollection('posts')).sort(
-  (a, b) => b.data.date.getTime() - a.data.date.getTime()
-);
+const posts = (await getCollection('posts'))
+  .filter(p => !p.data.series)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
 function formatDate(date: Date): string {
   return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
