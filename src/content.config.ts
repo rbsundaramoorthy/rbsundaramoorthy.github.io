@@ -11,6 +11,8 @@ const posts = defineCollection({
     date: z.date(),
     readTime: z.string(),
     excerpt: z.string(),
+    series: z.string().optional(),
+    seriesPart: z.number().optional(),
   }),
 });
 
