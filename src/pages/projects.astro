@@ -4,6 +4,11 @@ import AnimatedEntry from '../components/AnimatedEntry.jsx';
 import { getCollection } from 'astro:content';
 
 const projects = await getCollection('projects');
+const posts = await getCollection('posts');
+
+function formatDate(date: Date): string {
+  return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+}
 ---
 
 <BaseLayout title="Projects — r.s">
@@ -40,110 +45,193 @@ const projects = await getCollection('projects');
       </p>
     </AnimatedEntry>
 
-    {projects.map((proj, i) => (
-      <AnimatedEntry client:visible delay={i * 120}>
-        <div
-          style={{
-            background: "#FFFFFF",
-            border: "1px solid #E5DDD3",
-            borderRadius: "12px",
-            padding: "36px",
-            marginBottom: "20px",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "flex-start",
-              marginBottom: "12px",
-              flexWrap: "wrap",
-              gap: "8px",
-            }}
-          >
-            <h2
+    {projects.map((proj, i) => {
+      const seriesPosts = posts
+        .filter(p => p.data.series === proj.data.name)
+        .sort((a, b) => (a.data.seriesPart ?? 0) - (b.data.seriesPart ?? 0));
+
+      return (
+        <AnimatedEntry client:visible delay={i * 120}>
+          <div style={{ marginBottom: "20px" }}>
+            <div
               style={{
-                fontFamily: "'Cormorant Garamond', Georgia, serif",
-                fontSize: "26px",
-                fontWeight: 600,
+                background: "#FFFFFF",
+                border: "1px solid #E5DDD3",
+                borderRadius: seriesPosts.length > 0 ? "12px 12px 0 0" : "12px",
+                padding: "36px",
               }}
             >
-              {proj.data.name}
-            </h2>
-            <span
-              style={{
-                fontSize: "11px",
-                textTransform: "uppercase",
-                letterSpacing: "1.5px",
-                color:
-                  proj.data.status === "Active"
-                    ? "#4A8C5E"
-                    : proj.data.status === "In Progress"
-                    ? "#C0754A"
-                    : "#7A6F64",
-                fontWeight: 600,
-                background:
-                  proj.data.status === "Active"
-                    ? "#D4E4DB"
-                    : proj.data.status === "In Progress"
-                    ? "#E8CDB5"
-                    : "#F2EDE5",
-                padding: "4px 12px",
-                borderRadius: "20px",
-              }}
-            >
-              {proj.data.status}
-            </span>
-          </div>
-          <p
-            style={{
-              fontSize: "15px",
-              color: "#7A6F64",
-              lineHeight: 1.7,
-              fontWeight: 300,
-              marginBottom: "16px",
-            }}
-          >
-            {proj.data.description}
-          </p>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              flexWrap: "wrap",
-              gap: "12px",
-            }}
-          >
-            <span
-              style={{
-                fontSize: "12px",
-                color: "#C0754A",
-                fontWeight: 500,
-                fontFamily: "'DM Sans', sans-serif",
-              }}
-            >
-              {proj.data.tech}
-            </span>
-            {proj.data.url && (
-              <a
-                href={proj.data.url}
-                target="_blank"
-                rel="noopener noreferrer"
+              <div
                 style={{
-                  fontSize: "12px",
-                  color: "#4A8C5E",
-                  fontWeight: 500,
-                  fontFamily: "'DM Sans', sans-serif",
-                  textDecoration: "none",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "flex-start",
+                  marginBottom: "12px",
+                  flexWrap: "wrap",
+                  gap: "8px",
                 }}
               >
-                View on GitHub →
-              </a>
+                <h2
+                  style={{
+                    fontFamily: "'Cormorant Garamond', Georgia, serif",
+                    fontSize: "26px",
+                    fontWeight: 600,
+                  }}
+                >
+                  {proj.data.name}
+                </h2>
+                <span
+                  style={{
+                    fontSize: "11px",
+                    textTransform: "uppercase",
+                    letterSpacing: "1.5px",
+                    color:
+                      proj.data.status === "Active"
+                        ? "#4A8C5E"
+                        : proj.data.status === "In Progress"
+                        ? "#C0754A"
+                        : "#7A6F64",
+                    fontWeight: 600,
+                    background:
+                      proj.data.status === "Active"
+                        ? "#D4E4DB"
+                        : proj.data.status === "In Progress"
+                        ? "#E8CDB5"
+                        : "#F2EDE5",
+                    padding: "4px 12px",
+                    borderRadius: "20px",
+                  }}
+                >
+                  {proj.data.status}
+                </span>
+              </div>
+              <p
+                style={{
+                  fontSize: "15px",
+                  color: "#7A6F64",
+                  lineHeight: 1.7,
+                  fontWeight: 300,
+                  marginBottom: "16px",
+                }}
+              >
+                {proj.data.description}
+              </p>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  flexWrap: "wrap",
+                  gap: "12px",
+                }}
+              >
+                <span
+                  style={{
+                    fontSize: "12px",
+                    color: "#C0754A",
+                    fontWeight: 500,
+                    fontFamily: "'DM Sans', sans-serif",
+                  }}
+                >
+                  {proj.data.tech}
+                </span>
+                {proj.data.url && (
+                  <a
+                    href={proj.data.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      fontSize: "12px",
+                      color: "#4A8C5E",
+                      fontWeight: 500,
+                      fontFamily: "'DM Sans', sans-serif",
+                      textDecoration: "none",
+                    }}
+                  >
+                    View on GitHub →
+                  </a>
+                )}
+              </div>
+            </div>
+
+            {seriesPosts.length > 0 && (
+              <div
+                style={{
+                  background: "#F9F5EF",
+                  border: "1px solid #E5DDD3",
+                  borderTop: "none",
+                  borderRadius: "0 0 12px 12px",
+                  padding: "20px 36px",
+                }}
+              >
+                <p
+                  style={{
+                    fontSize: "11px",
+                    textTransform: "uppercase",
+                    letterSpacing: "2px",
+                    color: "#C0754A",
+                    fontWeight: 500,
+                    marginBottom: "14px",
+                  }}
+                >
+                  Series
+                </p>
+                {seriesPosts.map(post => (
+                  <a
+                    href={`/musings/${post.id}`}
+                    style={{ textDecoration: "none", color: "inherit", display: "block" }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "baseline",
+                        gap: "16px",
+                        padding: "10px 0",
+                        borderBottom: "1px solid #E5DDD3",
+                      }}
+                    >
+                      <div style={{ display: "flex", gap: "12px", alignItems: "baseline" }}>
+                        {post.data.seriesPart && (
+                          <span
+                            style={{
+                              fontSize: "11px",
+                              color: "#C0754A",
+                              fontWeight: 600,
+                              flexShrink: 0,
+                            }}
+                          >
+                            {post.data.seriesPart}
+                          </span>
+                        )}
+                        <span
+                          style={{
+                            fontFamily: "'Cormorant Garamond', Georgia, serif",
+                            fontSize: "17px",
+                            fontWeight: 600,
+                            color: "#2C2520",
+                          }}
+                        >
+                          {post.data.title}
+                        </span>
+                      </div>
+                      <span
+                        style={{
+                          fontSize: "12px",
+                          color: "#7A6F64",
+                          flexShrink: 0,
+                        }}
+                      >
+                        {formatDate(post.data.date)}
+                      </span>
+                    </div>
+                  </a>
+                ))}
+              </div>
             )}
           </div>
-        </div>
-      </AnimatedEntry>
-    ))}
+        </AnimatedEntry>
+      );
+    })}
   </section>
 </BaseLayout>
