@@ -19,6 +19,7 @@ const posts = defineCollection({
 const projects = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/projects' }),
   schema: z.object({
+    order: z.number().optional(),
     name: z.string(),
     description: z.string(),
     status: z.enum(['Active', 'In Progress', 'Idea Stage']),

@@ -1,4 +1,5 @@
 ---
+order: 1
 name: "Multi-Agent Due Diligence Analyst"
 description: "Four parallel LLM agents (research, financial, risk, social media) producing confidence-scored reports via tool calling and structured outputs."
 status: "In Progress"

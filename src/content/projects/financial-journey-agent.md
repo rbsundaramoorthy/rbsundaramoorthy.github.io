@@ -1,4 +1,5 @@
 ---
+order: 2
 name: "Financial Journey Intelligence Agent"
 description: "Real-time streaming system that fires an LLM agent only on meaningful behavioral triggers (~7% of events) to generate next-best-action recommendations for wealth advisors."
 status: "In Progress"
