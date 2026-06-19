@@ -312,18 +312,25 @@ const techAreas = [
           <h2 style={sectionHeadingStyle}>Selected Projects &amp; Open Source</h2>
           <div style={{ marginBottom: "20px" }}>
             <a href="https://github.com/rbsundaramoorthy" target="_blank" rel="noopener noreferrer" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", color: "#C0754A", textDecoration: "none", fontWeight: 500 }}>github.com/rbsundaramoorthy</a>
-            <p
+            <a
+              href="https://github.com/rbsundaramoorthy/agentic-due-diligence/blob/main/docs/agentic-ai-control-plane.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
                 fontFamily: "'Cormorant Garamond', Georgia, serif",
                 fontSize: "16px",
                 fontStyle: "italic",
-                color: "#7A6F64",
+                color: "#C0754A",
                 marginTop: "6px",
-                marginBottom: 0,
+                display: "block",
+                textDecoration: "none",
+                borderBottom: "1px solid #E8CDB5",
+                paddingBottom: "2px",
+                width: "fit-content",
               }}
             >
               Artifact: Agentic AI Control Plane — from frontier models to reliable enterprise workflows.
-            </p>
+            </a>
           </div>
           {projects.map(proj => (
             <div style={{ marginBottom: "18px", borderTop: "1px solid #F2EDE5", paddingTop: "16px" }}>
