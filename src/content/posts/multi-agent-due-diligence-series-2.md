@@ -110,3 +110,5 @@ The gap between an agent that scores two out of ten on these gates and one that 
 Next in the series is Gate #3, per-claim confidence, which is what you build once you can trace where everything came from and you start asking how sure you really are.
 
 The project is a personal one, built in the open on public data. The code is linked from the repository if you want to see the machinery behind any of this. And if you are building agents that have to survive contact with a real decision, I would be glad to compare notes.
+
+![Provenance in production AI agents](/images/li_post2_provenance.jpeg)
