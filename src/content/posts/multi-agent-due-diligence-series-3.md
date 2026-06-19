@@ -28,3 +28,5 @@ The throughline of the series is one sentence. A demo optimizes for looking righ
 ---
 
 *Next: Gate #4, how an agent behaves when it fails. Building this in the open — notes and code in the [GitHub repository](https://github.com/rbsundaramoorthy/agentic-due-diligence).*
+
+![Fluency is not confidence](/images/fluency_is_not_confidence_stacked.png)
