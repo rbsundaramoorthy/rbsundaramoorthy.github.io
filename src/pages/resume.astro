@@ -1,0 +1,324 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AnimatedEntry from '../components/AnimatedEntry.jsx';
+
+const sectionHeadingStyle = {
+  fontFamily: "'Cormorant Garamond', Georgia, serif",
+  fontSize: "20px",
+  fontWeight: 700,
+  color: "#2C2520",
+  textTransform: "uppercase" as const,
+  letterSpacing: "2px",
+  marginBottom: "20px",
+  paddingBottom: "8px",
+  borderBottom: "1px solid #E5DDD3",
+};
+
+const subHeadingStyle = {
+  fontFamily: "'DM Sans', sans-serif",
+  fontSize: "13px",
+  fontWeight: 600,
+  color: "#2C2520",
+  textTransform: "uppercase" as const,
+  letterSpacing: "0.5px",
+  marginBottom: "6px",
+};
+
+const bodyStyle = {
+  fontFamily: "'DM Sans', sans-serif",
+  fontSize: "14px",
+  lineHeight: 1.8,
+  color: "#4A3F38",
+  fontWeight: 300,
+  marginBottom: "12px",
+};
+
+const jobTitleStyle = {
+  fontFamily: "'Cormorant Garamond', Georgia, serif",
+  fontSize: "18px",
+  fontWeight: 700,
+  color: "#2C2520",
+};
+
+const jobOrgStyle = {
+  fontFamily: "'DM Sans', sans-serif",
+  fontSize: "12px",
+  color: "#C0754A",
+  fontWeight: 500,
+  marginBottom: "10px",
+  letterSpacing: "0.3px",
+};
+
+const dateStyle = {
+  fontFamily: "'DM Sans', sans-serif",
+  fontSize: "12px",
+  color: "#7A6F64",
+  fontWeight: 400,
+};
+
+const listStyle = {
+  paddingLeft: "18px",
+  marginBottom: "0px",
+};
+
+const listItemStyle = {
+  fontFamily: "'DM Sans', sans-serif",
+  fontSize: "14px",
+  lineHeight: 1.8,
+  color: "#4A3F38",
+  fontWeight: 300,
+  marginBottom: "6px",
+};
+
+const techRowStyle = {
+  display: "grid" as const,
+  gridTemplateColumns: "180px 1fr",
+  gap: "16px",
+  marginBottom: "10px",
+  alignItems: "baseline" as const,
+};
+
+const techLabelStyle = {
+  fontFamily: "'DM Sans', sans-serif",
+  fontSize: "11px",
+  fontWeight: 600,
+  color: "#C0754A",
+  textTransform: "uppercase" as const,
+  letterSpacing: "0.5px",
+};
+
+const projects = [
+  {
+    name: "Multi-Agent Due Diligence Analyst",
+    text: "Multi-agent due diligence pipeline that researches companies in parallel via tool calling and structured outputs, producing a canonical JSON report with per-claim confidence, inferred source tier, ground-truth evals with fuzzy matching, and full cost/token observability (SQLite tracing of every LLM and tool call, Streamlit replay). Markdown and PDF derive from the JSON. Built for provenance, auditability, and citation-grade output: the pattern legal, asset management, and compliance customers actually buy.",
+  },
+  {
+    name: "Enterprise RAG System",
+    text: "Production-grade RAG platform with event-driven ingestion, tenant isolation, ACL-safe retrieval, and grounded LLM answers with citations. Combines lexical and vector search with an integrated evaluation layer, observability pipeline, and Docker-based local development.",
+  },
+  {
+    name: "Financial Journey Intelligence Agent",
+    text: "Real-time streaming system maintaining per-customer journey state, firing an LLM agent only on meaningful behavioral triggers (~7% of events) to generate next-best-action recommendations for wealth advisors. Built with a 5-stage intent-scoring state machine, RAG-retrieved product knowledge, and synthetic data generators, architected to map directly to Kafka in production.",
+  },
+];
+
+const techAreas = [
+  {
+    label: "Production AI Systems",
+    text: "Multi-agent orchestration, tool calling, structured outputs, production RAG pipelines, evaluation frameworks, MCP integration, prompt engineering and context-engineering tradeoffs, agent skills and sub-agents.",
+  },
+  {
+    label: "Customer-Facing Deployment",
+    text: "Technical discovery and scoping, customer architecture review, integration patterns (REST, SSO/SAML/OAuth), white-glove enterprise deployments, post-deployment adoption measurement, repeatable starter repos and integration templates.",
+  },
+  {
+    label: "Platform & Cloud",
+    text: "AWS (Solutions Architect Professional), Python, event-driven architectures, Kafka, Snowflake, Databricks, Spark, distributed systems, observability tooling.",
+  },
+  {
+    label: "Reliability & Governance",
+    text: "Audit-grade compliance, incident response, on-call operations, deploy safety, business-signal detection, end-to-end monitoring (Elastic, Splunk, Grafana).",
+  },
+];
+---
+
+<BaseLayout title="Resume — r.s">
+  <section
+    style={{
+      maxWidth: "900px",
+      margin: "0 auto",
+      padding: "80px 32px",
+    }}
+  >
+    <AnimatedEntry client:load>
+      <div
+        style={{
+          background: "#FFFFFF",
+          border: "1px solid #E5DDD3",
+          borderRadius: "12px",
+          padding: "56px 64px",
+        }}
+      >
+
+        {/* Header */}
+        <div style={{ marginBottom: "40px", paddingBottom: "32px", borderBottom: "2px solid #E5DDD3" }}>
+          <h1
+            style={{
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontSize: "36px",
+              fontWeight: 700,
+              color: "#2C2520",
+              letterSpacing: "-0.5px",
+              marginBottom: "8px",
+            }}
+          >
+            Rajakumar Sundaramoorthy
+          </h1>
+          <p
+            style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: "14px",
+              color: "#C0754A",
+              fontWeight: 500,
+              marginBottom: "20px",
+              lineHeight: 1.5,
+            }}
+          >
+            Engineering Leader: Vertical AI Products, Regulated FS &amp; Insurance Domain, 0→1 Team Building
+          </p>
+          <div
+            style={{
+              display: "flex",
+              gap: "20px",
+              flexWrap: "wrap",
+              alignItems: "center",
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: "13px",
+              color: "#7A6F64",
+            }}
+          >
+            <span>980-213-7949</span>
+            <span style={{ color: "#E5DDD3" }}>|</span>
+            <a href="mailto:rbsundaramoorthy@gmail.com" style={{ color: "#7A6F64", textDecoration: "none" }}>rbsundaramoorthy@gmail.com</a>
+            <span style={{ color: "#E5DDD3" }}>|</span>
+            <span>Charlotte, NC</span>
+            <span style={{ color: "#E5DDD3" }}>|</span>
+            <a href="https://linkedin.com/in/rbsundaramoorthy" target="_blank" rel="noopener noreferrer" style={{ color: "#C0754A", textDecoration: "none", fontWeight: 500 }}>LinkedIn</a>
+            <span style={{ color: "#E5DDD3" }}>|</span>
+            <a href="https://github.com/rbsundaramoorthy" target="_blank" rel="noopener noreferrer" style={{ color: "#C0754A", textDecoration: "none", fontWeight: 500 }}>GitHub</a>
+          </div>
+        </div>
+
+        {/* Profile */}
+        <div style={{ marginBottom: "40px" }}>
+          <h2 style={sectionHeadingStyle}>Profile</h2>
+          <p style={bodyStyle}>
+            I'm an engineering leader who builds AI products for enterprise customers in regulated financial services. 20 years of direct delivery experience across the verticals Anthropic's posting names: insurance (Hartford), asset and wealth management (TIAA, Accenture engagement with a top-tier wealth manager). I currently lead a 7-person team at Accenture shipping AI into a wealth management client's production workflows: agentic developer tooling, multi-agent integration patterns, audit-grade controls. Earlier I founded and led two engineering teams at The Hartford from zero (12 engineers, three years, no inherited playbook). Recent GitHub work is the prototype shape of vertical AI products: a multi-agent due diligence runtime with tool calling, output guardrails, ground-truth evals, and full LLM/tool-call tracing (provenance and citation-grade output: the pattern FS customers actually buy); a multi-tenant RAG platform with ACL-safe retrieval; a Financial Journey Intelligence Agent generating next-best-action recommendations for wealth advisors via state-machine triggers. 20 years inside regulated FS also means I speak fluently with security, compliance, and audit reviewers on the customer side: procurement, security review, attestation, what compliance frameworks expect from a platform before it's production-ready.
+          </p>
+        </div>
+
+        {/* Leadership */}
+        <div style={{ marginBottom: "40px" }}>
+          <h2 style={sectionHeadingStyle}>Leadership &amp; Customer Delivery</h2>
+
+          <div style={{ marginBottom: "20px" }}>
+            <p style={subHeadingStyle}>Embedded Engineering Leadership</p>
+            <p style={bodyStyle}>Lead a 7-person team at Accenture embedded with a top-tier wealth management client (15 months, ongoing). Working alongside the client's product, engineering, compliance, and executive stakeholders to ship AI capabilities into production workflows. Own hiring, coaching, technical discovery, delivery cadences, and translation between engineering and business. Hands-on in the codebase and on architecture throughout. This is exactly the shape of work Anthropic's Vertical AI Products team does: AI product engineering tightly coupled to a specific enterprise customer's workflow.</p>
+          </div>
+
+          <div style={{ marginBottom: "20px" }}>
+            <p style={subHeadingStyle}>Customer Partnership &amp; Roadmap Shaping</p>
+            <p style={bodyStyle}>Designed and shipped tailored AI capabilities into the client's record-keeping system: context engineering with Kiro and agentic developer tooling driving a 22% reduction in code review turnaround; utility AI agents recovering ~1 hour per employee per day. Partner directly with the client's product, engineering, and compliance teams to shape what gets built next: turning customer learnings into engineering priorities, joining technical conversations with their security and audit reviewers, owning the platform-readiness work each launch requires.</p>
+          </div>
+
+          <div style={{ marginBottom: "20px" }}>
+            <p style={subHeadingStyle}>Agentic Systems Engineering</p>
+            <p style={bodyStyle}>Designed and shipped a multi-agent due diligence runtime with parallel agent orchestration, tool calling, structured outputs, ground-truth evals with fuzzy matching, and SQLite tracing of every LLM and tool call. Built for provenance, auditability, and citation-grade output: the pattern FS customers actually buy. The eval framework also gives reliable signal on output quality across domain use cases, the kind of evals work that informs both product and research. Companion projects: multi-tenant RAG platform with ACL-safe retrieval and integrated eval layer; Financial Journey Intelligence Agent generating next-best-action recommendations for wealth advisors. All on GitHub.</p>
+          </div>
+
+          <div style={{ marginBottom: "20px" }}>
+            <p style={subHeadingStyle}>0→1 Team Building</p>
+            <p style={bodyStyle}>Founded and led two engineering teams at The Hartford from zero (12 engineers across data preparation and entity resolution, three years, no inherited playbook). Defined mission, hiring bar, technical bar, and operating cadences. Coached an engineer hired straight out of college into a Product Owner role through structured 1:1s and stretch assignments.</p>
+          </div>
+
+          <div>
+            <p style={subHeadingStyle}>Regulated FS &amp; Insurance Domain Depth</p>
+            <p style={{ ...bodyStyle, marginBottom: 0 }}>20 years inside the regulated FS verticals Anthropic's Vertical AI Products team serves: insurance (Hartford), retirement and asset management (TIAA), wealth management (Accenture engagement with a top-tier wealth manager). Working knowledge of insurance claims and fraud analytics, entity resolution and 360° business graphs for cross-sell and underwriting, retirement income products with daily reconciliation requirements, advisor next-best-action workflows. Plus the operational layer Anthropic's enterprise customers expect: procurement, security review, compliance attestation, audit posture, multi-tenant isolation requirements.</p>
+          </div>
+        </div>
+
+        {/* Technical Expertise */}
+        <div style={{ marginBottom: "40px" }}>
+          <h2 style={sectionHeadingStyle}>Technical Expertise</h2>
+          {techAreas.map(item => (
+            <div style={techRowStyle}>
+              <span style={techLabelStyle}>{item.label}</span>
+              <p style={{ ...bodyStyle, marginBottom: 0 }}>{item.text}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Experience */}
+        <div style={{ marginBottom: "40px" }}>
+          <h2 style={sectionHeadingStyle}>Experience</h2>
+
+          {/* Accenture */}
+          <div style={{ marginBottom: "32px" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: "8px", marginBottom: "4px" }}>
+              <span style={jobTitleStyle}>Principal AI Solutions Architect</span>
+              <span style={dateStyle}>Feb 2025 – Present</span>
+            </div>
+            <p style={jobOrgStyle}>Accenture, Charlotte, NC &nbsp;|&nbsp; Retirement &amp; Wealth Management Client Engagement</p>
+            <p style={bodyStyle}>Lead a 7-person delivery team (3 engineers, 3 business/technical analysts, 1 Quality Engineer) embedded with a top-tier retirement and wealth management client. Own hiring, coaching, technical direction, sprint cadences, and executive stakeholder partnership across multi-workstream production engagements (15 months, ongoing).</p>
+            <ul style={listStyle}>
+              <li style={listItemStyle}>Built and delivered a guaranteed annuity product end-to-end: partnered with the client's product, engineering, and compliance teams from technical scoping through production launch.</li>
+              <li style={listItemStyle}>Integrated Capitalize (third-party retirement rollover platform) with the client's existing product portfolio, enabling streamlined participant rollovers across their record-keeping ecosystem.</li>
+              <li style={listItemStyle}>Evangelized context engineering and AI-assisted development with Kiro across the engagement, embedding modern AI development practices into the client's record-keeping system workflows.</li>
+              <li style={listItemStyle}>Drove adoption of LLM-assisted developer tooling and agentic AI capabilities, driving a 22% reduction in code review turnaround, accelerating sprint velocity.</li>
+              <li style={listItemStyle}>Designed and shipped utility AI agents recovering ~1 hour of capacity per employee per day across business and technical functions.</li>
+              <li style={listItemStyle}>Defined secure, auditable integration blueprints connecting external AI platforms with internal systems, satisfying compliance, governance, and responsible AI requirements at scale.</li>
+            </ul>
+          </div>
+
+          {/* TIAA */}
+          <div style={{ marginBottom: "32px" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: "8px", marginBottom: "4px" }}>
+              <span style={jobTitleStyle}>Observability Platform Lead</span>
+              <span style={dateStyle}>Mar 2023 – Feb 2025</span>
+            </div>
+            <p style={jobOrgStyle}>TIAA, Charlotte, NC</p>
+            <ul style={listStyle}>
+              <li style={listItemStyle}>Designed the foundational data layer for TIAA's Secure Income Account, a novel financial product requiring reliability across daily ledgering, reconciliation, and reporting.</li>
+              <li style={listItemStyle}>Architected an end-to-end observability system surfacing business and system signals across data pipelines, reducing mean time to detection by hours and measurably improving operational trust.</li>
+              <li style={listItemStyle}>Shipped cloud-native data pipelines (AWS) powering analytics, audit reporting, and operational dashboards.</li>
+              <li style={listItemStyle}>Built a Configuration-as-Code framework for synthetic and scenario-driven test data generation, cutting validation time for new features by ~40%.</li>
+            </ul>
+          </div>
+
+          {/* Hartford */}
+          <div>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: "8px", marginBottom: "4px" }}>
+              <span style={jobTitleStyle}>Applied ML Platform Lead</span>
+              <span style={dateStyle}>Feb 2018 – Jun 2022</span>
+            </div>
+            <p style={jobOrgStyle}>The Hartford Insurance, Charlotte, NC</p>
+            <p style={bodyStyle}>Founded and led 2 data engineering teams from scratch (12 engineers across data preparation and entity resolution) over three years. No inherited playbook. Owned hiring, coaching, technical direction, operating cadences, and stakeholder partnership with marketing, cross-sell, and underwriting leadership. Mentored an engineer hired straight out of college over three years to a Product Owner role.</p>
+            <ul style={listStyle}>
+              <li style={listItemStyle}>Data Preparation team: Sourced structured and semi-structured data from multiple systems and conformed it to a common model, powering downstream ML, analytics, and decisioning across the enterprise.</li>
+              <li style={listItemStyle}>Entity Resolution / ERaaS: Built Entity Resolution as a Service, a self-service identity resolution platform creating 360° business entities used by cross-sell, marketing, and underwriting teams for risk and pricing decisions.</li>
+              <li style={listItemStyle}>$6.2M/year in savings: Architected and shipped a Claims Analytics System that improved referral quality for fraud investigations.</li>
+              <li style={listItemStyle}>Re-architected the Commercial Market Reference Asset as a cloud-native AWS platform (S3, EMR, Glue), improving data lineage, scalability, and regulatory compliance.</li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Projects */}
+        <div style={{ marginBottom: "40px" }}>
+          <h2 style={sectionHeadingStyle}>Selected Projects &amp; Open Source</h2>
+          <p style={{ ...bodyStyle, marginBottom: "20px" }}>
+            <a href="https://github.com/rbsundaramoorthy" target="_blank" rel="noopener noreferrer" style={{ color: "#C0754A", textDecoration: "none", fontWeight: 500 }}>github.com/rbsundaramoorthy</a>
+          </p>
+          {projects.map(proj => (
+            <div style={{ marginBottom: "18px" }}>
+              <p style={subHeadingStyle}>{proj.name}</p>
+              <p style={{ ...bodyStyle, marginBottom: 0 }}>{proj.text}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Education */}
+        <div>
+          <h2 style={sectionHeadingStyle}>Education &amp; Certifications</h2>
+          <ul style={listStyle}>
+            <li style={listItemStyle}>M.S. Computer Science, The University of Texas at Dallas</li>
+            <li style={listItemStyle}>B.E. Production Engineering, Bharathiar University, India</li>
+            <li style={listItemStyle}>Accenture Certified: Reinvention with Agentic AI (Jan 2026)</li>
+            <li style={listItemStyle}>AWS Certified Solutions Architect – Professional (Mar 2023)</li>
+            <li style={listItemStyle}>AWS Certified Machine Learning (Oct 2022)</li>
+          </ul>
+        </div>
+
+      </div>
+    </AnimatedEntry>
+  </section>
+</BaseLayout>
